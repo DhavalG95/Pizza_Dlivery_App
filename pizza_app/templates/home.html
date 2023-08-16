@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row">
+    {% for pizz in piz %}
+    <div class="col-md-3">
+      <div class="card shadow-lg" style="width: 18rem;">
+        <img src="/media/{{pizz.images}}" style="height: 200px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{pizz.pizza_name}}</h5>
+          <p class="card-text">price = {{pizz.price}} | {{pizz.category.category_name}}</p>
+          <a href="{% url 'add_cart' pizz.uid %}" class="btn btn-success">Add To Cart<i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="#" class="btn btn-primary">20% discount</a>
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock %}
